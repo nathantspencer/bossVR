@@ -37,6 +37,7 @@ class MeshDownload(BaseConfig):
 
     def download_meshes_cv(self, mesh_file_location):
         mesh_vol = CloudVolume(f"s3://bossdb-open-data/{self.mesh_uri}", fill_missing=True, use_https=True)
+        mesh_vol.info["mesh"] = "Dataset_8_Mesh" # NOTE: this is a hardcoded dataset
 
         # specify where to save mesh objs
         os.makedirs(mesh_file_location, exist_ok=True)
